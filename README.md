@@ -1,35 +1,35 @@
-Hello, world! 
+Hello, world!
 
 This is my first project in the Python techdegree at Treehouse. I'm so excited to share it with you!
 
-guessing_game.py runs a fun game you can play. 
+guessing_game.py runs a fun game you can play.
 
 First, a welcome message is displayed.
 
-Then, the start_game() function begins. 
+Then, the start_game() function begins.
 
 A random integer >= 1 or <=10 is generated. Then the user is asked to enter any number from 1-10.
 
-In lines 42-51, a try block handles 2 errors: 
+In lines 32-41, a try block handles 2 errors:
 
 Error 1: The user inputs a number outside the range 1-10.
 Error 2: The user inputs a non-integer.
 
-If no exceptions are raised, the program informs the user whether they entered the right number or not. If they guess the wrong number, lines 52-58 inform the user whether the correct number is higher or lower, then to try again.
+If no exceptions are raised, the program informs the user whether they entered the right number or not. If they guess the wrong number, lines 43-48 inform the user whether the correct number is higher or lower, then to try again.
 
-When they guess the right number, the length of the list "guesses" - which is, the number of guesses they made to get the right number - is added to the list "num_guesses_to_get_right" (line 60).
+When they guess the right number, the length of the list "guesses" - which is, the number of guesses they made to get the right number - is added to the list "num_guesses_to_get_right" (line 50).
 
-In lines 59-62, the user is (if they guessed the right number) congratulated and told how many guesses it took within that session of the game. The list "guesses" is then cleared, so the user can get an updated number if they choose to play the game again.
+In lines 51-52, the user is (if they guessed the right number) congratulated and told how many guesses it took within that session of the game. The list "guesses" is then cleared, so the user can get an updated number if they choose to play the game again.
 
-In lines 63-65 , the user is asked if they'd like to play again. If yes, they are shown their high score - that is, the least amount of guesses they've made to get the right answer.
+In lines 53-55 , the user is asked if they'd like to play again. If yes, they are shown their high score - that is, the least amount of guesses they've made to get the right answer.
 
-Lines 67-75 are designed to prevent the same random number from generating upon playing a new game.
+Lines 56-64 are designed to prevent the same random number from generating upon playing a new game.
 
-The random number generated at the start of the game is added to a list called "random_numbers_generated." 
+The random number generated at the start of the game is added to a list called "random_numbers_generated."
 
-A while block creates a variable called new_random_num, which generates a random integer from 1 - 10. If the new_random_number is NOT in the list "random_numbers_generated," the while loop will break. Otherwise, it will continue to run. 
+A while block creates a variable called new_random_num, which generates a random integer from 1 - 10. If the new_random_number is NOT in the list "random_numbers_generated," the while loop will break. Otherwise, it will continue to run.
 
-After the loop breaks, the variable random_num is coerced to new_random_num (line 73). Then the list random_numbers_generated is cleared. This is because the entire function start_game is nested within a while loop. Upon playing the game again, the random number to guess will always be:
+After the loop breaks, the variable random_num is coerced to new_random_num (line 63). Then the list random_numbers_generated is cleared. This is because the entire function start_game is nested within a while loop. Upon playing the game again, the random number to guess will always be:
 
 - A new random integer between 1-10
 and:
