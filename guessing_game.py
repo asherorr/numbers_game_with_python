@@ -12,6 +12,7 @@ num_guesses = []
 
 random_numbers_generated = []
 
+
 def welcome_message():
     opening_message = print("""
     -----------------------------------
@@ -25,12 +26,14 @@ def welcome_message():
         print(word)
         time.sleep(.5)
 
+
 def start_game():
     random_num = random.randint(1, 10)
     while True:
         try:
             try:
-                user_selection = int(input("Pick any number from {}. ".format("1-10")))
+                user_selection = int(
+                    input("Pick any number from {}. ".format("1-10")))
                 guesses.append(user_selection)
             except ValueError:
                 raise ValueError("Please enter only a number.")
@@ -49,12 +52,18 @@ def start_game():
                 num_guesses_to_get_right.append(len(guesses))
                 print("\nYou got it! Congratulations! It took you {} guesses to get the right number.".format(len(guesses)))
                 guesses.clear()
-                #try block here
-                option_to_play_again = input("\nWould you like to play again? (Yes/No) ")
-                #if input not yes or no:
-                    #Raise ValueError:
-                #except ValueError(print message)
-                #Else:
+                input_error = True
+                while input_error:
+                    try:
+                        valid_input_1 = "yes"
+                        valid_input_2 = "no"
+                        option_to_play_again = input("\nWould you like to play again? (Yes/No) ")
+                        if option_to_play_again.lower() != valid_input_1 and option_to_play_again.lower() != valid_input_2:
+                            raise ValueError("Oh no! We ran into an issue. Please enter only yes or no.")
+                    except ValueError as err:
+                        print(f'{err}')
+                    else:
+                        input_error = False
                 if option_to_play_again.lower() == "yes":
                     print("Current high score: {}.".format(min(num_guesses_to_get_right)))
                     random_numbers_generated.append(random_num)
@@ -70,14 +79,13 @@ def start_game():
                 else:
                     break
 
+
 def ending_message():
     print("Thanks for playing! The program will close now.")
     sys.exit
+
 
 welcome_message()
 start_game()
 ending_message()
 
-#Refactoring
-#try block for user errors in play again
-#fix the problem of potentially having all numbers hit that list in the case of guessing all 10 nums (clear the list after they play, perhaps.)
